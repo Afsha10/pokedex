@@ -1,7 +1,23 @@
-import React from "react";
+import  React, {useState} from "react";
 
 function CaughtPokemon(props) {
-  return <p>Caught 0 Pokemon on {props.date}</p>;
+  const [caught, setCaught] = useState(0);
+
+  function catchPokemon() {
+    setCaught((caught) => {
+      return caught + 1;
+    });
+  }
+
+  return (
+    <div>
+      <p>
+        Caught {caught} Pokemon on {props.date}
+      </p>
+      <button onClick={catchPokemon}>Click me</button>
+    </div>
+  );
 }
 
 export default CaughtPokemon;
+
